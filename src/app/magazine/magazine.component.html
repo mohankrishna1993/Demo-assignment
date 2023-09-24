@@ -1,0 +1,195 @@
+<div class="laptop-view">
+
+<div class="title-container">
+  <mat-icon  [ngStyle]="{'color':'#74409D'}">library_books</mat-icon>
+  <span class="title">Magazines</span>
+  <span class="sub-title">All products</span>
+</div>
+<div class="container">
+
+  <div class="filter-container">
+    <div class="form-group has-search">
+      <label for="search">Search</label>
+      <span class="fa fa-search form-control-feedback"></span>
+      <input id="search" type="text" class="form-control search-input" placeholder="Search by article or article category">
+    </div>
+
+    <div class="form-group">
+      <label>Language</label>
+    <select class="form-select drop-down-item" style="width: 240px;">
+      <option selected>All</option>
+      <option value="1">One</option>
+      <option value="2">Two</option>
+      <option value="3">Three</option>
+    </select>
+    </div>
+
+    <div class="form-group">
+      <label>Author</label>
+    <select class="form-select drop-down-item" style="width: 240px;">
+      <option selected>All</option>
+      <option value="1">One</option>
+      <option value="2">Two</option>
+      <option value="3">Three</option>
+    </select>
+    </div>
+    <div class="form-group">
+      <label>Status</label>
+    <select class="form-select drop-down-item" style="width: 240px;">
+      <option selected>All</option>
+      <option value="1">One</option>
+      <option value="2">Two</option>
+      <option value="3">Three</option>
+    </select>
+    </div>
+      <button type="button" class="btn btn-primary create-article-btn" style="height: 36px; margin-top: 16px; width: 240px;">Create new article</button>
+
+
+  </div>
+
+  <table style="width:100%; margin-top: 24px">
+    <thead>
+      <tr class="header-container">
+        <th  style="width:10%;">Images</th>
+        <th  style="width:30%;">Article</th>
+        <th style="width:18%;">Author</th>
+        <th style="width:24%;">Status and Date</th>
+        <th style="width:18%;">Action</th>
+      </tr>
+    </thead>
+    <!-- 10 30 18 18 24 -->
+    <tbody>
+      <tr
+      class="data-container"
+        *ngFor="
+          let post of POSTS
+            | paginate
+              : {
+                  itemsPerPage: tableSize,
+                  currentPage: page,
+                  totalItems: count
+                };
+          let i = index
+        "
+      >
+        <td scope="row" style="width:10%;">
+          <img [src]="post.image"/>
+        </td>
+        <td style="width:30%;"><span class="article">{{ post.article }}</span></td>
+        <td style="width:18%;">
+          <div class="author">
+            <img class="profile-pic" [src]="post.author_pic"/>
+            <span style="white-space:nowrap; margin-left: 4px;"> {{post.author_name}}</span>
+        </div>
+        </td>
+        <td style="width:18%;">
+          <div>
+            <div *ngIf="post.isPublished; else draft" class="published">
+              <mat-icon  [ngStyle]="{'color':'#74409D'}" class="published-icon" >check_circle</mat-icon>
+              <span style="align-self: center; margin-left: 4px;">Published</span></div>
+
+          <ng-template #draft>
+            <div class="published">
+            <mat-icon  [ngStyle]="{'color':'#74409D'}" class="published-icon" >schedule</mat-icon>
+            <span style="align-self: center; margin-left: 4px;">Draft</span>
+          </div>
+        </ng-template>
+
+          <p>Published : {{post.publishedDate}}</p>
+        </div>
+
+        </td>
+        <td style="width:24%;">
+          <div class="actions">
+            <mat-icon  [ngStyle]="{'color':'#74409D'}"aria-hidden="false" aria-label="Example home icon" fontIcon="visibility"></mat-icon>
+            <mat-icon  [ngStyle]="{'color':'#74409D'}" aria-hidden="false" aria-label="Example home icon" fontIcon="border_color"></mat-icon>
+            <mat-icon  [ngStyle]="{'color':'#74409D'}" aria-hidden="false" aria-label="Example home icon" fontIcon="delete"></mat-icon>
+            <mat-slide-toggle  [ngStyle]="{'color':'#74409D'}"></mat-slide-toggle>
+
+          </div>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <div class="d-flex justify-content-center">
+    <pagination-controls
+    class="my-pagination"
+      previousLabel=""
+      nextLabel=""
+      (pageChange)="onTableDataChange($event)"
+    >
+    </pagination-controls>
+  </div>
+</div>
+</div>
+
+<div class="mobile-view">
+  <button type="button"  class="btn btn-primary create-article-btn" style="height: 36px; width: 100%;">Create new article</button>
+
+  <!-- <div class="form-group has-search" style="width: 100%;">
+    <label for="search">Search</label>
+    <span class="fa fa-search form-control-feedback"></span>
+    <input id="search" type="text" class="form-control search-input" placeholder="Search by article or article category" >
+  </div> -->
+  <mat-card class="example-card" *ngFor="
+  let post of POSTS
+    | paginate
+      : {
+          itemsPerPage: tableSize,
+          currentPage: page,
+          totalItems: count
+        };
+  let i = index
+">
+
+    <mat-card-content>
+      <div style="display: flex;">
+        <div style="flex-grow: 1;">
+          <img [src]="post.image"/>
+
+        </div>
+        <div style="flex-grow: 1;">
+          <div class="author">
+            <img class="profile-pic" [src]="post.author_pic"/>
+            <span style="white-space:nowrap; margin-left: 4px;"> {{post.author_name}}</span>
+        </div>
+        <div>{{post.publishedDate}}</div>
+      </div>
+      </div>
+      <span class="article">{{ post.article }}</span>
+    </mat-card-content>
+    <mat-card-actions>
+      <button mat-icon-button aria-label="Example icon button with a vertical three dot icon">
+        <mat-icon  [ngStyle]="{'color':'#74409D'}">visibility</mat-icon>
+      </button>
+      <button mat-icon-button aria-label="Example icon button with a vertical three dot icon">
+        <mat-icon  [ngStyle]="{'color':'#74409D'}">border_color</mat-icon>
+      </button>
+      <button mat-icon-button aria-label="Example icon button with a vertical three dot icon">
+        <mat-icon  [ngStyle]="{'color':'#74409D'}">delete</mat-icon>
+      </button>
+
+
+      <div>
+        <div *ngIf="post.isPublished; else draft" class="published">
+          <mat-icon  [ngStyle]="{'color':'#74409D'}" class="published-icon" >check_circle</mat-icon>
+          <span style="align-self: center; margin-left: 4px;">Published</span></div>
+
+      <ng-template #draft>
+        <div class="published">
+        <mat-icon class="published-icon" >schedule</mat-icon>
+        <span style="align-self: center; margin-left: 4px;">Draft</span>
+      </div>
+    </ng-template>
+    </div>
+    <mat-slide-toggle   [ngStyle]="{'color':'#74409D', 'margin-left': '8px'}" ></mat-slide-toggle>
+
+
+
+    </mat-card-actions>
+  </mat-card>
+
+
+
+
+</div>

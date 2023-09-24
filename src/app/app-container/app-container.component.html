@@ -1,0 +1,145 @@
+<mat-toolbar class="mat-elevation-z8">
+  <button
+    mat-icon-button
+    style="border: 0px;"
+    *ngIf="sidenav.mode === 'over'"
+    (click)="sidenav.toggle()"
+  >
+    <mat-icon [ngStyle]="{'color':'#74409D'}" *ngIf="!sidenav.opened"> menu </mat-icon>
+    <mat-icon [ngStyle]="{'color':'#74409D'}" *ngIf="sidenav.opened"> close </mat-icon>
+  </button>
+  Awesome App
+</mat-toolbar>
+
+
+
+<mat-sidenav-container class="app-container">
+  <mat-sidenav #sidenav="matSidenav" mode="side" opened class="app-sidenav">
+    <mat-card class="example-card">
+      <mat-card-header>
+        <div mat-card-avatar class="example-header-image"></div>
+        <mat-card-title style="font-size: 16px">Welcome again</mat-card-title>
+        <mat-card-subtitle>Wisteria Ravenclaw</mat-card-subtitle>
+      </mat-card-header>
+    </mat-card>
+
+    <mat-nav-list>
+      <mat-list-item class="sidenav-item" [disableRipple]="true" [routerLinkActive]="['is-active']" routerLink="#">
+        <div class="icon-text">
+        <mat-icon  [ngStyle]="{'color':'#74409D', 'margin-right': '4px'}">signal_cellular_alt</mat-icon>
+        <span>Dashboard</span>
+      </div>
+      </mat-list-item>
+
+      <mat-list-item routerLink="#" class="sidenav-item" [disableRipple]="true" [routerLinkActive]="['is-active']">
+      <div class="icon-text">
+        <mat-icon [ngStyle]="{'color':'#74409D', 'margin-right': '4px'}">settings</mat-icon>
+        <span>Profile</span>
+      </div>
+      </mat-list-item>
+
+
+
+      <mat-expansion-panel [class.mat-elevation-z0]="true">
+        <mat-expansion-panel-header>
+          <div class="icon-text">
+
+          <mat-icon [ngStyle]="{'color':'#74409D', 'margin-right': '4px'}">shopping_cart</mat-icon> Products
+        </div></mat-expansion-panel-header>
+        <mat-nav-list>
+          <a mat-list-item routerLink="#" class="sidenav-item" [disableRipple]="true" [routerLinkActive]="['is-active']">
+            <span>Product 1</span>
+          </a>
+          <a mat-list-item routerLink="#" class="sidenav-item" [disableRipple]="true" [routerLinkActive]="['is-active']">
+            <span>Product 2</span>
+          </a>
+
+        </mat-nav-list>
+      </mat-expansion-panel>
+      <mat-expansion-panel [class.mat-elevation-z0]="true">
+        <mat-expansion-panel-header>
+          <div class="icon-text">
+          <mat-icon>
+
+          perm_identity</mat-icon> Users </div></mat-expansion-panel-header>
+        <mat-nav-list>
+          <a mat-list-item routerLink="#" class="sidenav-item" [disableRipple]="true" [routerLinkActive]="['is-active']">
+            <span>Customers</span>
+          </a>
+          <a mat-list-item routerLink="#" class="sidenav-item" [disableRipple]="true" [routerLinkActive]="['is-active']">
+            <span>Managers</span>
+          </a>
+          <a mat-list-item routerLink="#" class="sidenav-item" [disableRipple]="true" [routerLinkActive]="['is-active']">
+            <span>Events</span>
+          </a>
+          <a mat-list-item routerLink="#" class="sidenav-item" [disableRipple]="true" [routerLinkActive]="['is-active']">
+            <span>Wine</span>
+          </a>
+          <a mat-list-item routerLink="#" class="sidenav-item" [disableRipple]="true" [routerLinkActive]="['is-active']">
+            <span>Partner program</span>
+          </a>
+        </mat-nav-list>
+      </mat-expansion-panel>
+
+      <mat-expansion-panel [class.mat-elevation-z0]="true">
+        <mat-expansion-panel-header>
+          <div class="icon-text">
+           <mat-icon> attach_money</mat-icon> Finances
+           </div></mat-expansion-panel-header>
+        <mat-nav-list>
+          <a mat-list-item routerLink="#" class="sidenav-item" [disableRipple]="true" [routerLinkActive]="['is-active']">
+            <span>Finances 1</span>
+          </a>
+          <a mat-list-item routerLink="#" class="sidenav-item" [disableRipple]="true" [routerLinkActive]="['is-active']">
+            <span>Finances 2</span>
+          </a>
+        </mat-nav-list>
+      </mat-expansion-panel>
+
+      <mat-expansion-panel [class.mat-elevation-z0]="true">
+        <mat-expansion-panel-header>
+          <div class="icon-text">
+          <mat-icon> content_copy</mat-icon>Content
+        </div> </mat-expansion-panel-header>
+        <mat-nav-list>
+          <a mat-list-item routerLink="#" class="sidenav-item" [disableRipple]="true" [routerLinkActive]="['is-active']">
+            <span>Content 1</span>
+          </a>
+          <a mat-list-item routerLink="#" class="sidenav-item" [disableRipple]="true" [routerLinkActive]="['is-active']">
+            <span>Content 2</span>
+          </a>
+        </mat-nav-list>
+      </mat-expansion-panel>
+      <mat-list-item class="sidenav-item" [disableRipple]="true"  [routerLinkActive]="['is-active']">
+        <span routerLink="/magazine">
+          <div class="icon-text">
+          <mat-icon  [ngStyle]="{'color':'#74409D'}">library_books</mat-icon> Magazinine
+        </div></span>
+      </mat-list-item>
+
+      <mat-expansion-panel [class.mat-elevation-z0]="true">
+        <mat-expansion-panel-header><div class="icon-text"><mat-icon>settings_ethernet</mat-icon> Others</div> </mat-expansion-panel-header>
+        <mat-nav-list>
+          <a mat-list-item routerLink="#" class="sidenav-item" [disableRipple]="true" [routerLinkActive]="['is-active']">
+            <span>Others 1</span>
+          </a>
+          <a mat-list-item routerLink="#" class="sidenav-item" [disableRipple]="true" [routerLinkActive]="['is-active']">
+            <span>Others 2</span>
+          </a>
+        </mat-nav-list>
+
+      </mat-expansion-panel>
+      <mat-list-item class="sidenav-item logout" [disableRipple]="true">
+        <span>log out</span>
+      </mat-list-item>
+
+    </mat-nav-list>
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <router-outlet>
+
+    </router-outlet>
+  </mat-sidenav-content>
+</mat-sidenav-container>
+
+

@@ -1,0 +1,156 @@
+.container {
+  padding: 24px;
+  background-color: #fff;
+  height: 100%;
+}
+.form-group{
+  display: flex;
+  flex-direction: column;
+  width: 320px;
+}
+
+.my-pagination ::ng-deep .ngx-pagination .current {
+  background: #74409D;
+  border-radius: 50%;
+}
+
+table {
+  width: 100%;
+  table-layout: fixed;
+}
+
+.images {
+  width: 10%;
+  padding-left: 4px;
+
+}
+.article {
+  font-weight: bold;
+}
+.author {
+  width: 18%;
+
+}
+.status {
+  width: 18%;
+
+}
+.actions {
+  display: flex;
+  justify-content: space-between;
+
+}
+
+th {
+  text-align: left;
+  height: 40px;
+
+  font-weight: normal;
+}
+
+.header-container {
+  background-color: #F9F7F6;
+
+}
+
+.has-search {
+  height: 36px;
+}
+
+.search-input {
+  height: 36px;
+  // font-size: 12px;
+}
+
+.drop-down-item {
+  height: 32px;
+  font-size: 12px;
+}
+
+
+
+.has-search .form-control {
+  padding-left: 2.375rem;
+}
+
+.has-search .form-control-feedback {
+  position: absolute;
+  z-index: 2;
+  display: block;
+  width: 2.375rem;
+  height: 2.375rem;
+  line-height: 4.375rem;
+  text-align: center;
+  pointer-events: none;
+  color: #aaa;
+}
+
+.data-container {
+  height: 102px;
+}
+
+img { /* responsiveness */
+  display: block;
+  width: auto;
+  height: auto;
+  max-width: 100%;
+  max-height: 100%;
+}
+td {
+  padding: 4px;
+}
+.profile-pic {
+  height: 28px;
+  width: 28px;
+}
+.author {
+  display: flex;
+  align-items: center;
+}
+
+.published-icon {
+  font-size: 16px;
+  height: 16px;
+  width: 16px;
+}
+.published {
+  display: flex;
+  align-items: center;
+}
+.title {
+  font-size: 22px;
+  font-weight: bold;
+  margin-left: 4px;
+}
+.sub-title {
+  font-size: 16px;
+  margin-left: 8px;
+}
+.title-container {
+  display: flex;
+  align-items: center;
+  margin-top: 4px;
+}
+
+.filter-container {
+  display: flex;
+  gap: 6px;
+  vertical-align: center;
+}
+.create-article-btn {
+  background-color: #74409D
+}
+@media only screen and (max-width: 800px) {
+  .laptop-view {
+    display: none;
+  }
+}
+
+@media only screen and (min-width: 800px) {
+  .mobile-view {
+    display: none;
+  }
+}
+
+
+

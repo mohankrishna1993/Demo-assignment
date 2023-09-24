@@ -1,0 +1,48 @@
+.app-container {
+  height: 90%;
+  margin: 0;
+  background-color: #F9F7F6;
+}
+.app-sidenav {
+  width: 230px;
+  background-color: #fff;
+}
+.app-sidenav-content {
+  display: flex;
+  height: 100%;
+  align-items: center;
+  justify-content: center;
+}
+
+.mat-drawer-side {
+  border: 0px;
+}
+
+.example-header-image {
+  background-image: url('../../assets/images/profile_pic.png');
+  background-size: cover;
+}
+.sidenav-item {
+  padding: 16px;
+  background-color: #FDFCFB;
+  margin-bottom: 4px;
+  border-radius: 8px;
+}
+.mat-expansion-panel-header {
+  padding: 16px;
+}
+.logout {
+  text-align: right;
+}
+
+.is-active {
+  background-color: #74409D;
+  color: #ffff !important;
+}
+.icon-text {
+  display: flex;
+  align-items: center;
+}
+
+a.mat-list-item.active { color: #fff !important; }
+
